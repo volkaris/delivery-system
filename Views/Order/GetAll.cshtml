@@ -1,0 +1,67 @@
+@model IEnumerable<testTask.Models.Order>
+
+@{
+    ViewData["Title"] = "Все заказы";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    
+    <title>@ViewData["Title"]</title>
+    <style>
+        .order {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .order-details {
+            display: none;
+            margin-top: 10px;
+            border-top: 1px solid #dee2e6;
+            padding-top: 10px;
+        }
+        .toggle-details {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="mb-4">@ViewData["Title"]</h1>
+    <div id="orderList">
+        @foreach (var order in Model)
+        {
+            <div class="order">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><strong>Id заказа</strong> @order.Id</span>
+                    <button class="btn btn-primary btn-sm toggle-details" onclick="toggleDetails('details-@order.Id')">Показать детали</button>
+                </div>
+                <div id="details-@order.Id" class="order-details">
+                    <p><strong>Город отправителя</strong> @order.SenderCity</p>
+                    <p><strong>Адрес отправителя</strong> @order.SenderAddress</p>
+                    <p><strong>Город получателя</strong> @order.ReceiverCity</p>
+                    <p><strong>Адрес получателя</strong> @order.ReceiverAddress</p>
+                    <p><strong>Вес груза</strong> @order.OrderWeight</p>
+                    <p><strong>Дата забора груза</strong> @order.OrderReceiveTime.ToString("dd.MM.yyyy HH:mm")</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    function toggleDetails(id) {
+        const element = document.getElementById(id);
+        if (element.style.display === "none" || element.style.display === "") {
+            element.style.display = "block";
+        } else {
+            element.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

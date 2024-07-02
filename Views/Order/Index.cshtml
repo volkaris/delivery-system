@@ -1,0 +1,72 @@
+@{
+    ViewData["Title"] = "Добавить новый заказ";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="form-container">
+            <h2 class="form-title">@ViewData["Title"]</h2>
+            <form asp-controller="Order" asp-action="Create" method="post">
+                <div>
+                    <div >
+                        <label for="SenderCity">Город отправителя</label>
+                        <input type="text" class="form-control" id="SenderCity" name="SenderCity" required placeholder="Санкт-Петербург">
+                    </div>
+                    <div>
+                        <label for="SenderAddress">Адрес отправителя</label>
+                        <input type="text" class="form-control" id="SenderAddress" name="SenderAddress" required placeholder="Невский проспект 44, кв 50">
+                    </div>
+                    <div>
+                        <label for="ReceiverCity">Город получателя</label>
+                        <input type="text" class="form-control" id="ReceiverCity" name="ReceiverCity" required placeholder="Санкт-Петербург">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ReceiverAddress">Адрес получателя</label>
+                    <input type="text" class="form-control" id="ReceiverAddress" name="ReceiverAddress" required placeholder="Парфеновская 13">
+                </div>
+                <div class="form-group">
+                    <label for="OrderWeight">Вес груза</label>
+                    <input type="text" class="form-control" id="OrderWeight" name="OrderWeight" required placeholder="1.56">
+                </div>
+                <div class="form-group">
+                    <label for="OrderReceiveTime">Дата забора груза</label>
+                    <input type="date" class="form-control" id="OrderReceiveTime" name="OrderReceiveTime" required>
+                </div>
+                <button type="submit" class="btn btn-primary button">Сохранить заказ</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
