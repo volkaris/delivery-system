@@ -13,13 +13,18 @@ internal class Program
         builder.Services.AddDbContext<OrderDbContext>(
             options =>
                 options.UseNpgsql(
-                    builder.Configuration.GetConnectionString("DataBase")));
+                    builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
         builder.Services.AddScoped<IOrderService, OrderService>();
         
         var app = builder.Build();
 
+        using (var scope=app.Services.CreateScope())
+        {
+            var dbContext = scope.ServiceProvider.GetRequiredService<OrderDbContext>();
+            dbContext.Database.Migrate();
+        }
 
         if (!app.Environment.IsDevelopment())
         {

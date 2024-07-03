@@ -16,10 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Ilya\RiderProjects\testTask\testTask
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Ilya/RiderProjects/testTask/testTask/Views/Order/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Ilya/RiderProjects/testTask/testTask/Views/Order/GetAll.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcR2V0QWxsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
